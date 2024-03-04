@@ -1,5 +1,6 @@
 "use strict";
 const pixelContainer = document.querySelector("#pixel-container");
+document.addEventListener("DOMContentLoaded", () => createGrid(16));
 function createGrid(pixels) {
     for (let i = 0; i < pixels ** 2; i++) {
         const pixel = document.createElement("div");
@@ -8,11 +9,19 @@ function createGrid(pixels) {
         pixel.classList.add("pixel");
         pixelContainer.appendChild(pixel);
     }
+    etchSketch();
+}
+function etchSketch() {
     let pixelList = document.querySelectorAll(".pixel");
     hoverTrail(pixelList);
-    console.log(pixelList);
+    resetBtn();
 }
-document.addEventListener("DOMContentLoaded", () => createGrid(16));
 function hoverTrail(nodeList) {
     nodeList.forEach((pixel) => pixel.addEventListener("mouseover", () => pixel.classList.add("pixel-hovered")));
+}
+function resetBtn() {
+    const resetBtn = document.querySelector("#reset");
+    resetBtn.addEventListener("click", () => {
+        document.querySelectorAll(".pixel").forEach((pixel) => pixel.classList.remove("pixel-hovered"));
+    });
 }
