@@ -28,7 +28,7 @@ body {
   background-color: #527c81;
 }
 
-.button {
+#buttons button {
   background-color: #b3eae3;
   border-radius: 3px;
   border: 1px solid #7aa7c7;
@@ -53,12 +53,12 @@ body {
   margin-bottom: 20px;
 }
 
-.button:hover {
+#buttons button:hover {
   background-color: #8bd4cb;
   color: #2c5777;
 }
 
-.button:active {
+#buttons button:active {
   background-color: #a0c7e4;
   box-shadow: none;
   color: #2c5777;

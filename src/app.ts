@@ -12,18 +12,32 @@ function createGrid(pixels: number) {
 }
 
 function etchSketch() {
-  let pixelList = document.querySelectorAll(".pixel");
-  hoverTrail(pixelList);
-  resetBtn();
+  hoverTrail(document.querySelectorAll(".pixel"));
+  setupButtons();
 }
 
 function hoverTrail(nodeList: NodeListOf<Element>) {
   nodeList.forEach((pixel) => pixel.addEventListener("mouseover", () => pixel.classList.add("pixel-hovered")));
 }
 
-function resetBtn() {
-  const resetBtn = document.querySelector("#reset") as HTMLElement;
-  resetBtn.addEventListener("click", () => {
-    document.querySelectorAll(".pixel").forEach((pixel) => pixel.classList.remove("pixel-hovered"));
+function setupButtons() {
+  const buttons = document.querySelector("#buttons") as HTMLElement;
+  const pixelList = document.querySelectorAll(".pixel");
+  buttons.addEventListener("click", (event) => {
+    let target = event.target as HTMLElement;
+    switch (target.id) {
+      case "btn-grid-size":
+        const pixelInput = prompt("Enter number of pixels per side (Max 100 pixels)", "");
+        if (pixelInput == null || pixelInput == "" || +pixelInput > 100 || +pixelInput < 1) {
+          alert("Cancelled.");
+        } else {
+          pixelList.forEach((pixel) => pixel.remove());
+          createGrid(parseInt(pixelInput));
+        }
+        break;
+      case "btn-reset":
+        pixelList.forEach((pixel) => pixel.classList.remove("pixel-hovered"));
+        break;
+    }
   });
 }
