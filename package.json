@@ -1,0 +1,22 @@
+{
+  "name": "top-etch-a-sketch",
+  "version": "1.0.0",
+  "description": "simple etch-a-sketch-project",
+  "main": "./dist/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuhindas56/top-etch-a-sketch.git"
+  },
+  "author": "Tuhin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuhindas56/top-etch-a-sketch/issues"
+  },
+  "homepage": "https://github.com/tuhindas56/top-etch-a-sketch#readme",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
