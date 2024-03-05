@@ -22,21 +22,21 @@ document.addEventListener("DOMContentLoaded", () => createGrid(16));
 
 function hoverTrail(nodeList: NodeListOf<Element>) {
   nodeList.forEach((pixel) => {
-    let COLOR = {
+    let color = {
       red: 82,
       green: 124,
       blue: 129,
     };
     pixel.addEventListener("mouseover", () => {
-      COLOR.red -= 5;
-      COLOR.green -= 12;
-      COLOR.blue -= 12;
-      (pixel as HTMLElement).style.backgroundColor = `rgb(${COLOR.red}, ${COLOR.green}, ${COLOR.blue})`;
+      color.red -= 5;
+      color.green -= 12;
+      color.blue -= 12;
+      (pixel as HTMLElement).style.backgroundColor = `rgb(${color.red}, ${color.green}, ${color.blue})`;
     });
     pixel.addEventListener("reset", (event) => {
-      COLOR.red = (event as CustomEvent).detail.red;
-      COLOR.green = (event as CustomEvent).detail.green;
-      COLOR.blue = (event as CustomEvent).detail.blue;
+      color.red = (event as CustomEvent).detail.red;
+      color.green = (event as CustomEvent).detail.green;
+      color.blue = (event as CustomEvent).detail.blue;
     });
   });
 }
