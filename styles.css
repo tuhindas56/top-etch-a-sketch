@@ -1,45 +1,59 @@
+:root {
+  --font: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+  --light-grey: rgb(124, 140, 148);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  background-color: #1c2627;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgb(28, 38, 39);
+  font-family: var(--font);
+}
+.flex-container {
+  display: flex;
   align-items: center;
   justify-content: center;
+  gap: 50px;
+}
+h1 {
+  color: var(--light-grey);
 }
 #pixel-container {
+  border: 1px solid var(--light-grey);
   display: flex;
   box-sizing: content-box;
-  border: 1px solid white;
   flex-wrap: wrap;
-  height: 640px;
-  width: 640px;
+  height: 500px;
+  width: 500px;
 }
 .pixel {
-  border: 1px solid black;
-  background-color: #30484a;
+  background-color: rgb(48, 72, 74);
 }
-
-.pixel-hovered {
-  background-color: #527c81;
+#controls {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  gap: 8px;
 }
-
-#buttons button {
+#controls button,
+#controls a {
   background-color: #b3eae3;
   border-radius: 3px;
   border: 1px solid #7aa7c7;
   color: #39739d;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+  font-family: var(--font);
   font-size: 13px;
   font-weight: 400;
   line-height: 1.15385;
-  margin-inline: 8px;
   outline: none;
   padding: 8px 0.8em;
   position: relative;
@@ -50,16 +64,29 @@ body {
   touch-action: manipulation;
   vertical-align: baseline;
   white-space: nowrap;
-  margin-bottom: 20px;
 }
-
-#buttons button:hover {
+#controls button:hover,
+#controls a:hover {
   background-color: #8bd4cb;
   color: #2c5777;
 }
-
-#buttons button:active {
+#controls button:active,
+#controls a:active {
   background-color: #a0c7e4;
   box-shadow: none;
   color: #2c5777;
+}
+.fa-github {
+  font-size: 1.4em;
+}
+#grid-size {
+  font-size: 0.85em;
+  color: var(--light-grey);
+}
+footer {
+  color: var(--light-grey);
+}
+footer a {
+  text-decoration: none;
+  color: var(--light-grey);
 }
