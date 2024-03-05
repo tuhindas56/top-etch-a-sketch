@@ -1,7 +1,7 @@
 # top-etch-a-sketch
 Simple etch-a-sketch project for The Odin Project
 
-05/03/24 Insights gained from this project:
+Insights gained from this project:
 
 - Use of Custom Events
 - Use of Event delegation
