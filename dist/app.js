@@ -46,7 +46,7 @@ function setupButtons() {
         const gridSize = document.querySelector("#grid-size");
         switch (target.id) {
             case "btn-grid-size":
-                const pixelInput = prompt("Enter number of pixels per side (Max 100 pixels)", "");
+                const pixelInput = prompt("Enter number of pixels per side (Min: 2 pixels, Max: 100 pixels)", "");
                 if (pixelInput == null || pixelInput == "" || +pixelInput > 100 || +pixelInput < 1) {
                     alert("Cancelled.");
                 }
