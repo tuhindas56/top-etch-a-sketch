@@ -7,4 +7,4 @@ A simple etch-a-sketch project built as part of <a href="https://www.theodinproj
 - Hover trail darkening
 - Custom grid creation
 
-![Etch-a-Sketch preview](https://https://tuhindas56.github.io/top-etch-a-sketch/assets/preview.gif)
+![Etch-a-Sketch preview](https://tuhindas56.github.io/top-etch-a-sketch/assets/preview.gif)
