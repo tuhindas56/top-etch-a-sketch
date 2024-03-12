@@ -34,7 +34,7 @@ h1 {
   width: 500px;
 }
 .pixel {
-  background-color: rgb(48, 72, 74);
+  background-color: #30484a;
 }
 #controls {
   display: flex;
@@ -89,4 +89,45 @@ footer {
 footer a {
   text-decoration: none;
   color: var(--light-grey);
+}
+
+/* Hover trail highlight classes */
+.hover-1 {
+  background-color: #4a7176;
+}
+
+.hover-2 {
+  background-color: #42666b;
+}
+
+.hover-3 {
+  background-color: #3a5b60;
+}
+
+.hover-4 {
+  background-color: #325055;
+}
+
+.hover-5 {
+  background-color: #2a454a;
+}
+
+.hover-6 {
+  background-color: #223b40;
+}
+
+.hover-7 {
+  background-color: #193035;
+}
+
+.hover-8 {
+  background-color: #11252a;
+}
+
+.hover-9 {
+  background-color: #072225;
+}
+
+.hover-10 {
+  background-color: #000000;
 }
