@@ -1,76 +1,32 @@
 const pixelContainer = document.querySelector("#pixel-container") as HTMLElement;
-const reset = new CustomEvent("reset", {
-  detail: {
-    red: 82,
-    green: 124,
-    blue: 129,
-  },
-});
+const buttons = document.querySelector("#controls") as HTMLElement;
+const currentGridSize = document.querySelector("#grid-size") as HTMLElement;
+document.addEventListener("DOMContentLoaded", () => createGrid("16"));
 
-function createGrid(pixels: number) {
-  for (let i = 0; i < pixels ** 2; i++) {
-    const pixel = document.createElement("div");
-    pixel.style.height = `${500 / pixels}px`;
-    pixel.style.width = `${500 / pixels}px`;
-    pixel.classList.add("pixel");
-    pixelContainer.appendChild(pixel);
+buttons.addEventListener("click", (click) => {
+  let target = click.target as HTMLElement;
+  console.log(target.id);
+  switch (target.id) {
+    case "btn-grid-size":
+      let input = prompt("Enter number of pixels per side (Min: 2 pixels, Max: 100 pixels)", "");
+      if (!(input == null || input == "" || +input > 100 || +input < 2)) {
+        createGrid(input);
+        currentGridSize.textContent = `${input}x${input}`;
+      } else {
+        alert("Cancelled.");
+      }
+      break;
   }
-  etchSketch();
+});
+function createGrid(getPixels: string) {
+  document.querySelectorAll("#pixel-container > div").forEach((div) => div.remove());
+  let pixels = +getPixels;
+  for (let i = 0; i < pixels ** 2; i++) {
+    let div = document.createElement("div");
+    div.style.height = `${500 / pixels}px`;
+    div.style.width = `${500 / pixels}px`;
+    div.classList.add("pixel");
+    pixelContainer.append(div);
+  }
 }
-
-document.addEventListener("DOMContentLoaded", () => createGrid(16));
-
-function hoverTrail(nodeList: NodeListOf<Element>) {
-  nodeList.forEach((pixel) => {
-    let color = {
-      red: 82,
-      green: 124,
-      blue: 129,
-    };
-    pixel.addEventListener("mouseover", () => {
-      color.red -= 5;
-      color.green -= 12;
-      color.blue -= 12;
-      (pixel as HTMLElement).style.backgroundColor = `rgb(${color.red}, ${color.green}, ${color.blue})`;
-    });
-    pixel.addEventListener("reset", (event) => {
-      color.red = (event as CustomEvent).detail.red;
-      color.green = (event as CustomEvent).detail.green;
-      color.blue = (event as CustomEvent).detail.blue;
-    });
-  });
-}
-
-function setupButtons() {
-  const buttons = document.querySelector("#controls") as HTMLElement;
-  const pixelList = document.querySelectorAll(".pixel");
-
-  buttons.addEventListener("click", (event) => {
-    let target = event.target as HTMLElement;
-    const gridSize = document.querySelector("#grid-size") as HTMLElement;
-
-    switch (target.id) {
-      case "btn-grid-size":
-        const pixelInput = prompt("Enter number of pixels per side (Min: 2 pixels, Max: 100 pixels)", "");
-        if (pixelInput == null || pixelInput == "" || +pixelInput > 100 || +pixelInput < 1) {
-          alert("Cancelled.");
-        } else {
-          pixelList.forEach((pixel) => pixel.remove());
-          createGrid(parseInt(pixelInput));
-          gridSize.textContent = `${pixelInput}x${pixelInput}`;
-        }
-        break;
-      case "btn-reset":
-        pixelList.forEach((pixel) => {
-          (pixel as HTMLElement).style.backgroundColor = "rgb(48, 72, 74)";
-          pixel.dispatchEvent(reset);
-        });
-        break;
-    }
-  });
-}
-
-function etchSketch() {
-  hoverTrail(document.querySelectorAll(".pixel"));
-  setupButtons();
-}
+console.log(document.querySelectorAll("#pixel-container > div"));
