@@ -1,6 +1,6 @@
 # top-etch-a-sketch
 
-A simple etch-a-sketch project built as part of <a href="https://www.theodinproject.com/lessons/foundations-etch-a-sketch">The Odin Project curriculum</a>.
+A simple etch-a-sketch project built as part of [The Odin Project curriculum](https://www.theodinproject.com/lessons/foundations-etch-a-sketch)
 
 ## Features:
 
